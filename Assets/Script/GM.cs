@@ -6,19 +6,28 @@ public class GM : MonoBehaviour
 {
     [SerializeField]
     GameObject PauseMenu;
+
+    [SerializeField]
+    GameObject QR;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-         PauseMenu.SetActive(true);
-         Time.timeScale = 0f;
+            PauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+        if (ScoreManager.instance.score == 5)
+        {
+            QR.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 

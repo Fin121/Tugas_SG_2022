@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     public AudioClip Point;
     public AudioSource audio3;
 
-    int score = 0;
+    public int score = 0;
     int highscore = 0;
 
     private void Awake()
@@ -30,15 +30,15 @@ public class ScoreManager : MonoBehaviour
     {
         score += 1;
         scoreText.text = "Score :" + score.ToString();
-        if(highscore < score)
+        if (highscore < score)
         {
             PlayerPrefs.SetInt("highscore", score);
         }
-            audio3 = GetComponent<AudioSource>();
-            audio3.clip = Point;
-            audio3.Play();
+        audio3 = GetComponent<AudioSource>();
+        audio3.clip = Point;
+        audio3.Play();
     }
-    
+
     public void Reset()
     {
         PlayerPrefs.DeleteKey("highscore");
